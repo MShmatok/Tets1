@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let answer;
+        let isDone;
+        do {
+            answer = +prompt('Ввведите номер (1-2-3)');
+            label1:
+            switch (answer) {
+                case 1:
+                    random(1);
+                    break;
+                case 2:
+                    random(2);
+                    break;
+
+                case 3:
+                    random(3);
+                    break;
+                default:
+                    alert('Введені не корректні дані. Спробуйте ще.');
+                    answer = +prompt('Ввведите значение (1-2-3)');
+                    break label1;
+            }
+
+        } while (isDone);
+
+        function random(User) {
+            let message;
+            let randomNumber = Math.floor(Math.random() * 3 + 1);
+
+            if (randomNumber > User) {
+                message = 'Ви програли';
+            } else {
+                message = 'Ви виграли!';
+            }
+            if (randomNumber == User) {
+                message = 'Ничія';
+            }
+
+            alert(message);
+            isDone = confirm('Зіграємо ще?');
+        }
+    </script>
+</body>
+
+</html>
